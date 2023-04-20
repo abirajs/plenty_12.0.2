@@ -468,7 +468,7 @@ class PaymentService
         $paymentResponseData = $this->paymentHelper->executeCurl($paymentRequestData['paymentRequestData'], $paymentRequestData['paymentUrl'], $privateKey);
         $isPaymentSuccess = isset($paymentResponseData['result']['status']) && $paymentResponseData['result']['status'] == 'SUCCESS';
         $this->getLogger(__METHOD__)->error('request', $paymentRequestData); 
-        $this->getLogger(__METHOD__)->error('response', $paymentResponseData);
+        $this->getLogger(__METHOD__)->error('direct_response', $paymentResponseData);
         // Do redirect if the redirect URL is present
         if($this->isRedirectPayment($paymentKey) || !empty($nnDoRedirect) || (!empty($nnGooglePayDoRedirect) && (string) $nnGooglePayDoRedirect === 'true')) {
             // Set the payment response in the session for the further processings

@@ -121,6 +121,7 @@ class PaymentController extends Controller
 
                 // Retrieve the full payment response
                 $paymentResponseData = $this->paymentService->getFullTxnResponse($paymentResponseData);
+                 $this->getLogger(__METHOD__)->error('redrect_response', $paymentResponseData);
                 $isPaymentSuccess = isset($paymentResponseData['result']['status']) && $paymentResponseData['result']['status'] == 'SUCCESS';
                 if($isPaymentSuccess) {
                     $this->paymentService->pushNotification($paymentResponseData['result']['status_text'], 'success', 100);

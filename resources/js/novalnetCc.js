@@ -48,7 +48,7 @@ function loadCardForm() {
             inline: (transactionData.inline_form !== undefined) ? transactionData.inline_form : 0,
             // Adjust the card field style and text
             style: { // For style
-                container: (customData.standard_style_css !== undefined) ? customData.standard_style_css : '',
+                container: (customData.standard_style_css !== undefined) ? customData.standard_style_css + '.input-group input { width: calc(100% - 0.8rem); position: relative; left: 3; }'  : '',
                 input: (customData.standard_style_field !== undefined) ? customData.standard_style_field : '' ,
                 label: (customData.standard_style_label !== undefined) ? customData.standard_style_label : '' ,
             },

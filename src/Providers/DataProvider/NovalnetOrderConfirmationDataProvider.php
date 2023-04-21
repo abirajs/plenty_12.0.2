@@ -14,7 +14,7 @@ use Novalnet\Helper\PaymentHelper;
 use Novalnet\Services\PaymentService;
 use Plenty\Modules\Payment\Contracts\PaymentRepositoryContract;
 use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
-
+use Plenty\Plugin\Log\Loggable;
 /**
  * Class NovalnetOrderConfirmationDataProvider
  *
@@ -22,6 +22,7 @@ use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFact
  */
 class NovalnetOrderConfirmationDataProvider
 {
+    use Loggable;
     /**
      * Displaying transaction comments in the order confirmation page
      *
@@ -46,6 +47,7 @@ class NovalnetOrderConfirmationDataProvider
             // Loads the payments for an order
             $payments = $paymentRepositoryContract->getPaymentsByOrderId($order['id']);
             foreach($payments as $payment) {
+                $this->getLogger(__METHOD__)->error('confirmation details', $payment->method['paymentKey']);
                     // Check it is Novalnet Payment method order
                     if($paymentHelper->getPaymentKeyByMop($payment->mopId)) {
                         // Load the order property and get the required details

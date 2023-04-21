@@ -15,6 +15,7 @@ use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFact
 use Novalnet\Helper\PaymentHelper;
 use Novalnet\Services\SettingsService;
 use Plenty\Modules\Helper\Services\WebstoreHelper;
+use Plenty\Plugin\Log\Loggable;
 
 /**
  * Class NovalnetPaymentMethodReinitializePaymentDataProvider
@@ -23,6 +24,7 @@ use Plenty\Modules\Helper\Services\WebstoreHelper;
  */
 class NovalnetPaymentMethodReinitializePaymentDataProvider
 {
+    use Loggable;
     /**
      * Display the reinitiate payment button
      *
@@ -50,6 +52,7 @@ class NovalnetPaymentMethodReinitializePaymentDataProvider
         $paymentKey = $paymentHelper->getPaymentKeyByMop($mopId);
         // Check if the order is Novalnet payment method
         if(strpos($paymentKey, 'NOVALNET') !== false) {
+            $this->getLogger(__METHOD__)->error('initilaze details', $paymentKey);
             // Get the Novalnet payment key and MOP Id
             $transactionDetails = $paymentService->getDetailsFromPaymentProperty($order['id']);
             // Build the payment request paramters

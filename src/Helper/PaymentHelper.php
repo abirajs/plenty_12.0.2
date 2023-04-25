@@ -241,7 +241,7 @@ class PaymentHelper
             });
             return $addressDetails;
         } catch (\Exception $e) {
-            $this->getLogger(__METHOD__)->error('Novalnet::getCustomerAddress', $e);
+            $this->getLogger(__METHOD__)->alert('Novalnet::getCustomerAddress', $e);
         }
     }
 

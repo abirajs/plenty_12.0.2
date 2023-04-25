@@ -29,7 +29,7 @@ jQuery(document).ready(function() {
                 },
                 button: {
                     type: jQuery('#nn_button_type').val(),
-                    locale: "de-DE",
+                    locale: ( String(jQuery('#nn_google_pay').attr('data-order-lang')) == 'EN' ) ? "en-US" : "de-DE",
                     boxSizing: "fill",
                     dimensions: {
                         height: parseInt(jQuery('#nn_button_height').val())

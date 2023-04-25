@@ -747,7 +747,7 @@ class PaymentService
                     // Finally, we check if the minimum order amount configured to process the payment method. By default, the minimum order amount is 999 cents
                     if($billingShippingDetails['billing'] == $billingShippingDetails['shipping']
                     && (in_array($billingShippingDetails['billing']['country_code'], ['AT', 'DE', 'CH']) || ($this->settingsService->getPaymentSettingsValue('allow_b2b_customer', $paymentKey)
-                    && in_array($billingShippingDetails['billing']['country_code'], $this->getEuropeanRegionCountryCodes())))
+                    && in_array($billingShippingDetails['billing']['country_code'], $this->getEuropeanRegionCountryCodes()) && $billingAddress->companyName	))
                     && (!empty($basket->currency) && $basket->currency == 'EUR')
                     && (!empty($minimumGuaranteedAmount) &&  (int) $minimumGuaranteedAmount <= (int) $basketAmount)) {
                         // If the guaranteed conditions are met, display the guaranteed payments

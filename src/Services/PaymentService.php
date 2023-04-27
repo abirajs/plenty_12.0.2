@@ -892,7 +892,7 @@ class PaymentService
             // Typecasting object to array
             $nnTransactionDetail = (array) $endTransactionDetail;
             $nnTransactionDetail['order_no'] = $nnTransactionDetail['orderNo'];
-            $nnTransactionDetail['amount'] = $nnTransactionDetail['amount'] / 100;
+            $nnTransactionDetail['amount'] = number_format($nnTransactionDetail['amount']/100 ,2);
             if(!empty($nnTransactionDetail['additionalInfo'])) {
                // Decoding the json as array
                 $nnTransactionDetail['additionalInfo'] = json_decode($nnTransactionDetail['additionalInfo'], true);

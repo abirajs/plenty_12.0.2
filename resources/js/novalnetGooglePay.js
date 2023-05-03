@@ -14,6 +14,7 @@ jQuery(document).ready(function() {
                     partnerId: jQuery('#nn_merchant_id').val(),
                 },
                 transaction: {
+                    setPendingPayment: true,
                     amount: String(jQuery('#nn_google_pay').attr('data-total-amount')),
                     currency: String(jQuery('#nn_google_pay').attr('data-currency')),
                     enforce3d: Boolean(jQuery('#nn_enforce').val()),

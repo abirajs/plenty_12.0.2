@@ -258,8 +258,9 @@ class PaymentService
         if($paymentRequestData['customer']['billing'] == $paymentRequestData['customer']['shipping']) {
             $paymentRequestData['customer']['shipping']['same_as_billing'] = '1';
         }
-        if(!empty($billingAddress->companyName)) { // Check if company field is given in the billing address
-            $paymentRequestData['customer']['billing']['company']   = $billingAddress->companyName;
+          if(!empty($billingAddress->companyName) && ($this->settingsService->getPaymentSettingsValue('allow_b2b_customer', $paymentKeyLower) == true)) { // Check if company field is given in the shipping address
+            $paymentRequestData['customer']['shipping']['company']  = $billingAddress->companyName;
+        }
         }
         if(!empty($billingAddress->state)) { // Check if state field is given in the billing address
             $paymentRequestData['customer']['billing']['state']     = $billingAddress->state;

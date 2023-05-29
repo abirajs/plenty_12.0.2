@@ -7,15 +7,20 @@
         {# Define variables #}
         var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
         var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
-
+        console.log(nnPaymentMethodId);   
+        console.log(nnPaymentMethodKey);
         {# Display the Novalnet ApplePay payment if it is IOS Device #}
         if(nnPaymentMethodKey == 'NOVALNET_APPLEPAY') {
            var iosDevicce = iOS();
            var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+           console.log(iosDevicce);
+           console.log(isSafari);
            if(iosDevicce && isSafari) {
             jQuery('li[data-id="'+nnPaymentMethodId+'"]').show();
+            console.log('show');
            } else {
             jQuery('li[data-id="'+nnPaymentMethodId+'"]').hide();
+            console.log('hide');
            }
         }
 

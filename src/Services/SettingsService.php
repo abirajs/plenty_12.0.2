@@ -104,7 +104,7 @@ class SettingsService
     {
         
         $settings = $this->getSettings($clientId, $pluginSetId);
-        
+        $this->getLogger(__METHOD__)->error('settings', $settings);
         if(!is_null($settings)) {
             if(!empty($paymentKey) && isset($settings->value[$paymentKey])) {
                 return $settings->value[$paymentKey][$settingsKey];

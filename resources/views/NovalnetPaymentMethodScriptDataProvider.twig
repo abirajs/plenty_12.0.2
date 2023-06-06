@@ -4,12 +4,13 @@
 <script type="text/javascript">
     jQuery(document).ready(function() {
         {# Define variables #}
-        var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
-        var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
+
         console.log(nnPaymentMethodId);   
         console.log(nnPaymentMethodKey);
         {# Display the Novalnet ApplePay payment if it is IOS Device #}
         if(nnPaymentMethodKey == 'NOVALNET_APPLEPAY') {
+           var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
+           var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
            var iosDevicce = iOS();
            var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
            console.log(iosDevicce);

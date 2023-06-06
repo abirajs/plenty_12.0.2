@@ -127,8 +127,7 @@ class PaymentHelper
             NovalnetGuaranteedInvoicePaymentMethod::PAYMENT_KEY     => NovalnetGuaranteedInvoicePaymentMethod::class,
             NovalnetGuaranteedSepaPaymentMethod::PAYMENT_KEY        => NovalnetGuaranteedSepaPaymentMethod::class,
             NovalnetCcPaymentMethod::PAYMENT_KEY                    => NovalnetCcPaymentMethod::class,
-            NovalnetGooglePayPaymentMethod::PAYMENT_KEY             => NovalnetGooglePayPaymentMethod::class,
-            NovalnetApplePayPaymentMethod::PAYMENT_KEY              => NovalnetApplePayPaymentMethod::class,
+
             NovalnetIdealPaymentMethod::PAYMENT_KEY                 => NovalnetIdealPaymentMethod::class,
             NovalnetSofortPaymentMethod::PAYMENT_KEY                => NovalnetSofortPaymentMethod::class,
             NovalnetGiropayPaymentMethod::PAYMENT_KEY               => NovalnetGiropayPaymentMethod::class,
@@ -143,7 +142,9 @@ class PaymentHelper
             NovalnetOnlineBankTransferPaymentMethod::PAYMENT_KEY    => NovalnetOnlineBankTransferPaymentMethod::class,
             NovalnetAlipayPaymentMethod::PAYMENT_KEY                => NovalnetAlipayPaymentMethod::class,
             NovalnetWechatPayPaymentMethod::PAYMENT_KEY             => NovalnetWechatPayPaymentMethod::class,
-            NovalnetTrustlyPaymentMethod::PAYMENT_KEY               => NovalnetTrustlyPaymentMethod::class
+            NovalnetTrustlyPaymentMethod::PAYMENT_KEY               => NovalnetTrustlyPaymentMethod::class,
+            NovalnetGooglePayPaymentMethod::PAYMENT_KEY             => NovalnetGooglePayPaymentMethod::class,
+            NovalnetApplePayPaymentMethod::PAYMENT_KEY              => NovalnetApplePayPaymentMethod::class,
         ];
     }
 

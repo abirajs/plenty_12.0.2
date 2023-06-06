@@ -6,7 +6,7 @@
         {# Define variables #}
         var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
         var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
-       alert(nnPaymentMethodId);   
+        console.log(nnPaymentMethodId);   
         console.log(nnPaymentMethodKey);
         {# Display the Novalnet ApplePay payment if it is IOS Device #}
         if(nnPaymentMethodKey == 'NOVALNET_APPLEPAY') {
@@ -16,10 +16,10 @@
            console.log(isSafari);
            if(iosDevicce && isSafari) {
             jQuery('li[data-id="'+nnPaymentMethodId+'"]').show();
-            alert('show');
+            console.log('show');
            } else {
             jQuery('li[data-id="'+nnPaymentMethodId+'"]').hide();
-            alert('hide');
+            console.log('hide');
            }
         }
 
@@ -52,7 +52,7 @@ function iOS() {
       'iPod'
     ].includes(navigator.platform)
     // iPad on iOS 13 detection
-    || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    || (navigator.userAgent.includes("Mac"))
 }
 </script>
 

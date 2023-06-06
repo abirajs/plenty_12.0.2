@@ -20,9 +20,10 @@
            } else {
             jQuery('li[data-id="'+nnPaymentMethodId+'"]').hide();
             console.log('hide');
-           }
+           }       
         }
-
+        
+        
         {# Call the Direct payment methods #}
         jQuery("#nn_direct_payment_process").click(function () {
             jQuery.get("/payment/novalnet/directPaymentProcess/", function(data) {

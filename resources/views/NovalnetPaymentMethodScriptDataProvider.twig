@@ -20,6 +20,7 @@
             console.log('show');
            } else {
             jQuery('li[data-id="'+nnPaymentMethodId+'"]').hide();
+	    
             console.log('hide');
            }       
         }
@@ -27,18 +28,21 @@
         
         {# Show Error Message the Novalnet ApplePay payment if it is not IOS Device #}
         if(nnPaymentMethodKey == 'NOVALNET_APPLEPAY') {
+	console.log('1');
            var iosDevicce = iOS();
            var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
            if(iosDevicce && isSafari) {
-           jQuery('li[data-id="'+nnPaymentMethodId+'"]').click(function(){
-            alert(iosDevice);
-            alert(isSafari);
-            });
+	   console.log('2');
+		jQuery('li[data-id="'+nnPaymentMethodId+'"]').click(function(){
+			alert(iosDevice);
+			alert(isSafari);
+		});
            } else {
-			jQuery('li[data-id="'+nnPaymentMethodId+'"]').click(function(){
+	   console.log('3');
+		jQuery('li[data-id="'+nnPaymentMethodId+'"]').click(function(){
 			alert("not upported");
 			location.reload();
-			});
+		});
            }      
         }
         

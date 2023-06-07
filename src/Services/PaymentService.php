@@ -1065,6 +1065,7 @@ class PaymentService
             $paymentRequestData = [];
             $paymentRequestData['transaction']['tid'] = $transactionData['tid'];
             $paymentRequestData['custom']['lang'] = strtoupper($transactionData['lang']);
+	    $paymentRequestData['custom']['shop_invoked'] = 1;
             // Send the payment capture/void call to Novalnet server
             $paymentResponseData = $this->paymentHelper->executeCurl($paymentRequestData, $paymentUrl, $privateKey);
             $paymentResponseData = array_merge($paymentRequestData, $paymentResponseData);

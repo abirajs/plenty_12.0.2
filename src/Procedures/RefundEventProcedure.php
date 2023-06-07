@@ -117,6 +117,7 @@ class RefundEventProcedure
                 $paymentRequestData['transaction']['amount'] = (float) $refundAmount * 100;
                 $paymentRequestData['custom']['lang'] = strtoupper($orderLanguage);
                 $paymentRequestData['custom']['shop_invoked'] = 1;
+                $this->getLogger(__METHOD__)->error('refundEvent', $paymentRequestData);
                 // Send the payment capture/void call to Novalnet server
                 $paymentResponseData = $this->paymentHelper->executeCurl($paymentRequestData, NovalnetConstants::PAYMENT_REFUND_URL, $privateKey);
                 $paymentResponseData = array_merge($paymentRequestData, $paymentResponseData);

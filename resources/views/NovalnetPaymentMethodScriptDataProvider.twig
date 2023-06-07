@@ -1,6 +1,8 @@
 {# Set the post data and Load the JS #}
 <input type="hidden" name="nn_paymentmethod_key" id="nn_paymentmethod_key" value="{{nnPaymentMethodKey}}">
 <input type="hidden" name="nn_paymentmethod_id" id="nn_paymentmethod_id" value="{{nnPaymentMethodId}}">
+
+	
 <script type="text/javascript">
     jQuery(document).ready(function() {
         {# Define variables #}
@@ -25,7 +27,7 @@
         }
         
         
-	{% if services.template.isCurrentTemplate('tpl.checkout') %}
+	if (services.template.isCurrentTemplate('tpl.confirmation')) {
 	alert('checkout');
         if(nnPaymentMethodKey == 'NOVALNET_APPLEPAY') {
            var iosDevicce = iOS();
@@ -37,7 +39,7 @@
 	     alert("not supported");
            }      
         }
-	{% endif %}
+	}
        
 	
 	

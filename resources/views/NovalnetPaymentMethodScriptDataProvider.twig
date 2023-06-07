@@ -2,7 +2,12 @@
 <input type="hidden" name="nn_paymentmethod_key" id="nn_paymentmethod_key" value="{{nnPaymentMethodKey}}">
 <input type="hidden" name="nn_paymentmethod_id" id="nn_paymentmethod_id" value="{{nnPaymentMethodId}}">
 
-	
+		{% if services.template.isCurrentTemplate('tpl.checkout') %}
+			<script>
+				alert('test');
+			</script>
+		{% endif %}
+
 <script type="text/javascript">
     jQuery(document).ready(function() {
         {# Define variables #}
@@ -25,25 +30,7 @@
             console.log('hide');
            }       
         }
-        
-        
-	if (services.template.isCurrentTemplate('tpl.confirmation')) {
-	alert('checkout');
-        if(nnPaymentMethodKey == 'NOVALNET_APPLEPAY') {
-           var iosDevicce = iOS();
-           var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-           if(iosDevicce && isSafari) {
-            alert(iosDevice);
-            alert(isSafari);
-           } else {
-	     alert("not supported");
-           }      
-        }
-	}
-       
-	
-	
-	
+  
         
         {# Call the Direct payment methods #}
         jQuery("#nn_direct_payment_process").click(function () {
@@ -77,7 +64,22 @@ function iOS() {
     || (navigator.userAgent.includes("Mac") && "ontouchend" in document )
 }
 </script>
-
+	{% if services.template.isCurrentTemplate('tpl.checkout') %}
+			<script>
+				alert('checkout');
+				if(nnPaymentMethodKey == 'NOVALNET_APPLEPAY') {
+				   var iosDevicce = iOS();
+				   var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+				   if(iosDevicce && isSafari) {
+				    alert(iosDevice);
+				    alert(isSafari);
+				   } else {
+				     alert("not supported");
+				   }      
+				}
+			</script>
+		{% endif %}
+		
 <form id="redirectPayment" method="post" action="{{redirectUrl}}">
 <input type="hidden"  value="1" name="nnReinitiatePayment" id="nnReinitiatePayment">
 <input type="hidden"  value="{{redirectUrl}}" name="nnRedirectPayment" id="nnRedirectPayment">

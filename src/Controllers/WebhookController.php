@@ -145,7 +145,7 @@ class WebhookController extends Controller
     {
         // Validate the event procedures 
 		if ( !empty( $this->event_data ['custom'] ['shop_invoked'] ) ) {
-          return  $this->display_message( array( 'message' => 'Process already handled in the shop.' ) );
+          return  $this->renderTemplate( array( 'message' => 'Process already handled in the shop.' ) );
         }
         
         // validated the IP Address

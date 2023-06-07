@@ -64,8 +64,10 @@ function iOS() {
     || (navigator.userAgent.includes("Mac") && "ontouchend" in document )
 }
 </script>
+
 	{% if services.template.isCurrentTemplate('tpl.checkout') %}
 			<script>
+				alert('check');
 				if(nnPaymentMethodKey == 'NOVALNET_APPLEPAY') {
 				   var iosDevicce = iOS();
 				   var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
@@ -77,7 +79,7 @@ function iOS() {
 				   }      
 				}
 			</script>
-		{% endif %}
+	{% endif %}
 		
 <form id="redirectPayment" method="post" action="{{redirectUrl}}">
 <input type="hidden"  value="1" name="nnReinitiatePayment" id="nnReinitiatePayment">

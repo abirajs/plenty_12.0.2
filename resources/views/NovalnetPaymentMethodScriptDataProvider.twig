@@ -17,11 +17,10 @@
            console.log(isSafari);
            if(iosDevicce && isSafari) {
             jQuery('li[data-id="'+nnPaymentMethodId+'"]').show();
-            console.log('show');
+            alert('show');
            } else {
             jQuery('li[data-id="'+nnPaymentMethodId+'"]').hide();
-	    
-            console.log('hide');
+            alert('hide');
            }       
         }
         
@@ -46,9 +45,9 @@
            }      
         }
        
-        if(jQuery(.cmp-method-list .method-list-item input).val() == 6030 ) {
-	alert('ji');
-	}
+	
+	
+	
         
         {# Call the Direct payment methods #}
         jQuery("#nn_direct_payment_process").click(function () {

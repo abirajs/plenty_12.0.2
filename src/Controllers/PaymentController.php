@@ -18,6 +18,7 @@ use Novalnet\Services\SettingsService;
 use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
 use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
 use Plenty\Plugin\Templates\Twig;
+use Plenty\Plugin\Log\Loggable;
 
 /**
  * Class PaymentController
@@ -26,6 +27,7 @@ use Plenty\Plugin\Templates\Twig;
  */
 class PaymentController extends Controller
 { 
+    use Loggable;
     /**
      * @var Request
      */
@@ -165,6 +167,7 @@ class PaymentController extends Controller
     {
         // Get the payment form post data
         $paymentRequestPostData = $this->request->all();
+        $this->getLogger(__METHOD__)->error('processPayment', $paymentRequestPostData);
         // Get the order amount
         $orderAmount = !empty($paymentRequestPostData['nn_order_amount']) ? $paymentRequestPostData['nn_order_amount'] : 0;
         // Get the payment request params
@@ -246,6 +249,7 @@ class PaymentController extends Controller
         if($postData['nnReinitiatePayment']) {
         $this->sessionStorage->getPlugin()->setValue('nnReinitiatePayment', '1');
         }
+        $this->getLogger(__METHOD__)->error('redirectPayment', $postData);
         $paymentResponseData = $this->paymentService->performServerCall();
         $paymentKey = $this->sessionStorage->getPlugin()->getValue('paymentkey');
         $nnDoRedirect = $this->sessionStorage->getPlugin()->getValue('nnDoRedirect');

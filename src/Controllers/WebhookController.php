@@ -143,6 +143,7 @@ class WebhookController extends Controller
      */
     public function processWebhook()
     {
+	    $this->getLogger(__METHOD__)->error('webhookInvoke', $this->eventData);
         // Validate the event procedures 
 		if ( !empty( $this->eventData ['custom'] ['shop_invoked'] ) ) {
           return  $this->renderTemplate( array( 'message' => 'Process already handled in the shop.' ) );

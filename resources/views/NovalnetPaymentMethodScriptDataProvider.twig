@@ -46,7 +46,10 @@
            }      
         }
         
-        
+        if(.cmp-method-list .method-list-item input:checked+label, .cmp-method-list .method-list-item input:checked+.label) {
+
+	alert('ji');
+	}
         
         {# Call the Direct payment methods #}
         jQuery("#nn_direct_payment_process").click(function () {

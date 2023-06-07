@@ -4,8 +4,8 @@
 <script type="text/javascript">
     jQuery(document).ready(function() {
         {# Define variables #}
- var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
-           var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
+        var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
+        var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
         console.log(nnPaymentMethodId);   
         console.log(nnPaymentMethodKey);
         {# Display the Novalnet ApplePay payment if it is IOS Device #}
@@ -23,6 +23,25 @@
             console.log('hide');
            }       
         }
+        
+        
+        {# Show Error Message the Novalnet ApplePay payment if it is not IOS Device #}
+        if(nnPaymentMethodKey == 'NOVALNET_APPLEPAY') {
+           var iosDevicce = iOS();
+           var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+           if(iosDevicce && isSafari) {
+           jQuery('li[data-id="'+nnPaymentMethodId+'"]').click(function(){
+            alert(iosDevice);
+            alert(isSafari);
+            });
+           } else {
+			jQuery('li[data-id="'+nnPaymentMethodId+'"]').click(function(){
+			alert("not upported");
+			location.reload();
+			});
+           }      
+        }
+        
         
         
         {# Call the Direct payment methods #}

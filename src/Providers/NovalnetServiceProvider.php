@@ -179,7 +179,16 @@ class NovalnetServiceProvider extends ServiceProvider
                             'customData'            => !empty($paymentService->getCcFormFields()) ? $paymentService->getCcFormFields() : ''
                         ]);
                         $contentType = 'htmlContent';
-                    }
+                    } elseif($paymentKey == 'NOVALNET_APPLEPAY') {
+                        $content = $twig->render('Novalnet::PaymentForm.NovalnetApplepay',
+                        [
+                            'nnPaymentProcessUrl'   => $paymentService->getProcessPaymentUrl(),
+                            'paymentMopKey'         => $paymentKey,
+                            'paymentName'           => $paymentHelper->getCustomizedTranslatedText('template_' . strtolower($paymentKey)),
+                          
+                        ]);
+                        $contentType = 'htmlContent';
+                    } 
                 }
                 $sessionStorage->getPlugin()->setValue('nnPaymentData', $paymentRequestData);
 

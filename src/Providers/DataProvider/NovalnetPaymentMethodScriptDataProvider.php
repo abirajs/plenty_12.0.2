@@ -44,7 +44,7 @@ class NovalnetPaymentMethodScriptDataProvider
                     if($paymentMethod->paymentKey == 'NOVALNET_APPLEPAY') {
                         $nnPaymentMethodKey = $paymentMethod->paymentKey;
                         $nnPaymentMethodId = $paymentMethod->id;
-                        $this->getLogger(__METHOD__)->error('ApplePAy', $paymentMethod);
+                       
                     }
                 }
             }

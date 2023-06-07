@@ -180,7 +180,7 @@ class NovalnetServiceProvider extends ServiceProvider
                         ]);
                         $contentType = 'htmlContent';
                     } elseif($paymentKey == 'NOVALNET_APPLEPAY') {
-                        $content = $twig->render('Novalnet::PaymentForm.NovalnetApplepay',
+                        $content = $twig->render('Novalnet::PaymentForm.NovalnetApplePay',
                         [
                             'nnPaymentProcessUrl'   => $paymentService->getProcessPaymentUrl(),
                             'paymentMopKey'         => $paymentKey,

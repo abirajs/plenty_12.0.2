@@ -107,6 +107,11 @@ jQuery(document).ready(function() {
                }
             });
         });
+        
+        jQuery('li[data-id="6030"]').click(function() {
+             alert('gpay');
+                    });
+        
     } catch (e) {
         // Handling the errors from the payment intent setup
         console.log(e.message);

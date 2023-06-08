@@ -67,7 +67,6 @@ function iOS() {
 
 	{% if services.template.isCurrentTemplate('tpl.checkout') %}
 			<script>
-				alert('check');
 				if(nnPaymentMethodKey == 'NOVALNET_APPLEPAY') {
 				   var iosDevicce = iOS();
 				   var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);

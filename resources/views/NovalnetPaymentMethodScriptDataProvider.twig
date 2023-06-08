@@ -34,12 +34,6 @@
   
   	jQuery('.cmp-method-list .method-list-item input:checked+label').css('border-style','dotted');
 	
-	if(jQuery('.cmp-method-list .method-list-item input:checked+label')) {
-	   if(nnPaymentMethodKey == 'NOVALNET_APPLEPAY') {	
-		alert('supported');
-	   }
-	}
-				     
 	
         {# Call the Direct payment methods #}
         jQuery("#nn_direct_payment_process").click(function () {

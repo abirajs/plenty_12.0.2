@@ -15,6 +15,11 @@
         var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
         console.log(nnPaymentMethodId);   
         console.log(nnPaymentMethodKey);
+	
+	 jQuery('li[data-id="'+nnPaymentMethodId+'"]').click(function() {
+             alert(yes);
+                    });
+		    
         {# Display the Novalnet ApplePay payment if it is IOS Device #}
         if(nnPaymentMethodKey == 'NOVALNET_APPLEPAY') {
           
@@ -33,6 +38,7 @@
         }
   
   	jQuery('.cmp-method-list .method-list-item input:checked+label').css('border-style','dotted');
+	
 	
 	
         {# Call the Direct payment methods #}

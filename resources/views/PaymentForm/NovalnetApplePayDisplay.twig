@@ -6,18 +6,15 @@
  <script type="text/javascript">
     jQuery(document).ready(function () {
 	var mopId = jQuery('#nn_apple_pay_mop').val();
-	jQuery('.method-list-item').on('click',function() {
-                var clickedId = jQuery(this).attr('data-id');
-                if(clickedId == mopId) {
-		     var iosDevicce = iOS();
-                     var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-			 if(iosDevicce && isSafari) {
-			    jQuery('li[data-id="'+mopId+'"]').show();
-			 } else {
-			    	alert(jQuery('#nn_applepay_error_msg').val());
-			  	location.reload();
-			 }	 
-               } 
+        if(jQuery('#nn_payment_key').val() == 'NOVALNET_APPLEPAY') {
+           var iosDevicce = iOS();
+           var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+           if(iosDevicce && isSafari) {
+            jQuery('li[data-id="'+mopId+'"]').show();
+           } else {
+            jQuery('li[data-id="'+mopId+'"]').hide();
+           }      
+        } 
      });	 
 		 
            

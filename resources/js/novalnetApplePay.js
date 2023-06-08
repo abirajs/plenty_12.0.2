@@ -7,11 +7,9 @@ jQuery(document).ready(function () {
 	
 	 jQuery('.method-list-item').on('click',function() {
                 var clickedId = jQuery(this).attr('data-id');
-                if(clickedId !== undefined && clickedId != mopId) {
-                  alert('NO');
-               } else {
-		  alert('yes');
-	       }
+                if(clickedId != mopId) {
+                  alert('yes');
+               } 
 		 });	 
 		 
            

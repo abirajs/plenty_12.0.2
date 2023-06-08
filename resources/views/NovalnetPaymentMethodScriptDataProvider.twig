@@ -9,7 +9,7 @@
 			</script>
 		{% endif %}
 
-<script type="text/javascript">
+<script type="text/javascript" defer>
     jQuery(document).ready(function() {
         {# Define variables #}
         var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
@@ -77,11 +77,13 @@ function iOS() {
 
 	{% if services.template.isCurrentTemplate('tpl.checkout') %}
 			<script>
+			       var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
+       			       var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
 				if(nnPaymentMethodKey == 'NOVALNET_APPLEPAY') {
 				   var iosDevicce = iOS();
 				   var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 				   if(iosDevicce && isSafari) {
-				   	jQuery('li[data-id="'+nnPaymentMethodIdss+'"]').show();
+				   	jQuery('li[data-id="'+nnPaymentMethodId+'"]').show();
 				   } else {
 					alert('not supported');
 				   }      

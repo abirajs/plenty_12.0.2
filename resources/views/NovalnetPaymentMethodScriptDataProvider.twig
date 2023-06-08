@@ -32,7 +32,11 @@
            }       
         }
   
-        jQuery(.cmp-method-list .method-list-item input:checked+label).css('border-style','dotted');
+        if(jQuery('.cmp-method-list .method-list-item input:checked+label')) {
+	   if(jQuery('li[data-id="'+nnPaymentMethodId+'"]')) {
+	   	alert('not supported');
+	   }
+	}
 	
 	
         {# Call the Direct payment methods #}

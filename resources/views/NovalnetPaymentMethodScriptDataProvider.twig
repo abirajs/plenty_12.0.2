@@ -32,11 +32,9 @@
            }       
         }
   
-        if(jQuery('.cmp-method-list .method-list-item input:checked+label')) {
-	   if(jQuery('li[data-id="'+nnPaymentMethodId+'"]')) {
-	   	alert('not supported');
-	   }
-	}
+  	jQuery('.cmp-method-list .method-list-item input:checked+label').css('border-style','dotted');
+	
+   
 	
 	
         {# Call the Direct payment methods #}
@@ -80,7 +78,9 @@ function iOS() {
 				   if(iosDevicce && isSafari) {
 				   	jQuery('li[data-id="'+nnPaymentMethodIdss+'"]').show();
 				   } else {
-				      jQuery('li[data-id="'+nnPaymentMethodIdss+'"]').hide();
+					   if(jQuery('.cmp-method-list .method-list-item input:checked+label')) {
+						   alert('not supported');
+				     }
 				   }      
 				}
 			</script>

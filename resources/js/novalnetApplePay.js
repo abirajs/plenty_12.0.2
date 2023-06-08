@@ -7,8 +7,8 @@ jQuery(document).ready(function () {
 	
 	 jQuery('.method-list-item').on('click',function() {
                 var clickedId = jQuery(this).attr('data-id');
-                if(clickedId != mopId) {
-                  alert('yes');
+                if(clickedId == mopId) {
+                  alert('Not allowed');
                } 
 		 });	 
 		 

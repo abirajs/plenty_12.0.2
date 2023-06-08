@@ -4,6 +4,7 @@
  <input type="hidden" name="nn_applepay_error_msg" id="nn_applepay_error_msg" value="{{trans("Novalnet::Customize.template_applepay_error_msg")}}">
  
  <script type="text/javascript">
+ var mopId = jQuery('#nn_apple_pay_mop').val();
     jQuery(document).ready(function () {
 	var mopId = jQuery('#nn_apple_pay_mop').val();
         if(jQuery('#nn_payment_key').val() == 'NOVALNET_APPLEPAY') {

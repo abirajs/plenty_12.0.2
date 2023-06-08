@@ -4,18 +4,20 @@
  <input type="hidden" name="nn_applepay_error_msg" id="nn_applepay_error_msg" value="{{trans("Novalnet::Customize.template_applepay_error_msg")}}">
  
  <script type="text/javascript">
- var mopId = jQuery('#nn_apple_pay_mop').val();
     jQuery(document).ready(function () {
 	var mopId = jQuery('#nn_apple_pay_mop').val();
-        if(jQuery('#nn_payment_key').val() == 'NOVALNET_APPLEPAY') {
-           var iosDevicce = iOS();
-           var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-           if(iosDevicce && isSafari) {
-            jQuery('li[data-id="'+mopId+'"]').show();
-           } else {
-            jQuery('li[data-id="'+mopId+'"]').hide();
-           }      
-        } 
+	jQuery('.method-list-item').on('click',function() {
+                var clickedId = jQuery(this).attr('data-id');
+                if(clickedId == mopId) {
+		     var iosDevicce = iOS();
+                     var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+			 if(iosDevicce && isSafari) {
+			    jQuery('li[data-id="'+mopId+'"]').show();
+			 } else {
+			    	alert(jQuery('#nn_applepay_error_msg').val());
+			  	location.reload();
+		         }	 
+              } 
      });	 
 		 
            

@@ -9,6 +9,7 @@ jQuery(document).ready(function () {
                 var clickedId = jQuery(this).attr('data-id');
                 if(clickedId == mopId) {
                   alert('Not allowed');
+		  location.reload();
                } 
 		 });	 
 		 

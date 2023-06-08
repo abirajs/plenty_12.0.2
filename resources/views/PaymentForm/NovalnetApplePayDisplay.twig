@@ -1,19 +1,12 @@
-{# Load the Js #}
-
-
-    {# Set up the post data#}
-    <input type="hidden" name="nn_apple_pay_mop" id="nn_apple_pay_mop" value="{{paymentMethodId}}">
-    <input type="hidden" name="nn_payment_key" id="nn_payment_key" value="NOVALNET_APPLEPAY">
-
-<script type="text/javascript">
-jQuery(document).ready(function () {
-	
+{# Set up the post data#}
+ <input type="hidden" name="nn_apple_pay_mop" id="nn_apple_pay_mop" value="{{paymentMethodId}}">
+ <input type="hidden" name="nn_payment_key" id="nn_payment_key" value="NOVALNET_APPLEPAY">
+ <input type="hidden" name="nn_accept_gtc" id="nn_accept_gtc" value="{{trans("Novalnet::Customize.template_applepay_error_msg")}}">
+ 
+ <script type="text/javascript">
+    jQuery(document).ready(function () {
 	var mopId = jQuery('#nn_apple_pay_mop').val();
-	 jQuery('li[data-id="'+mopId+'"]').click(function() {
-		alert('Not Supported');
-	});
-	
-	 jQuery('.method-list-item').on('click',function() {
+	jQuery('.method-list-item').on('click',function() {
                 var clickedId = jQuery(this).attr('data-id');
                 if(clickedId == mopId) {
 		     var iosDevicce = iOS();
@@ -25,7 +18,7 @@ jQuery(document).ready(function () {
 			  location.reload();
 			 }	 
                } 
-	});	 
+     });	 
 		 
            
 function iOS() {

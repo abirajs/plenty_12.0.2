@@ -23,16 +23,18 @@
            console.log(iosDevicce);
            console.log(isSafari);
            if(iosDevicce && isSafari) {
-            jQuery('ul li input[value="'+nnPaymentMethodId+'"]').show();
+            jQuery('li[data-id="'+nnPaymentMethodId+'"]').show();
             console.log('show');
            } else {
-            jQuery('ul li input[value="'+nnPaymentMethodId+'"]').hide();
+            jQuery('li[data-id="'+nnPaymentMethodId+'"]').hide();
             console.log('hide');
-	    console.log(jQuery('ul li input[value="'+nnPaymentMethodId+'"]'));
+	    console.log(jQuery('li[data-id="'+nnPaymentMethodId+'"]'));
            }       
         }
   
-        
+        jQuery(.cmp-method-list .method-list-item input:checked+label).css('border-style','dotted');
+	
+	
         {# Call the Direct payment methods #}
         jQuery("#nn_direct_payment_process").click(function () {
             jQuery.get("/payment/novalnet/directPaymentProcess/", function(data) {

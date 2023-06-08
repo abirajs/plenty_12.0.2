@@ -1,7 +1,8 @@
 {# Set the post data and Load the JS #}
 <input type="hidden" name="nn_paymentmethod_key" id="nn_paymentmethod_key" value="{{nnPaymentMethodKey}}">
 <input type="hidden" name="nn_paymentmethod_id" id="nn_paymentmethod_id" value="{{nnPaymentMethodId}}">
-
+ <input type="hidden" name="nn_applepay_error_msg" id="nn_applepay_error_msg" value="{{trans("Novalnet::Customize.template_applepay_error_msg")}}">
+ 
 		{% if services.template.isCurrentTemplate('tpl.checkout') %}
 			<script>
 				console.log('test');
@@ -40,6 +41,20 @@
   
   	jQuery('.cmp-method-list .method-list-item input:checked+label').css('border-style','dotted');
 	
+	jQuery(document).ready(function () {
+	jQuery('.method-list-item').on('click',function() {
+                var clickedId = jQuery(this).attr('data-id');
+                if(clickedId == nnPaymentMethodId) {
+		     var iosDevicce = iOS();
+                     var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+			 if(iosDevicce && isSafari) {
+			    jQuery('li[data-id="'+nnPaymentMethodId+'"]').show();
+			 } else {
+			  alert(jQuery('#nn_applepay_error_msg').val());
+			  location.reload();
+			 }	 
+               } 
+        });
 	
 	
         {# Call the Direct payment methods #}

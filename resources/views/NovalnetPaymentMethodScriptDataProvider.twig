@@ -23,10 +23,10 @@
            console.log(iosDevicce);
            console.log(isSafari);
            if(iosDevicce && isSafari) {
-            jQuery('li[data-id="'+nnPaymentMethodId+'"]').show();
+            jQuery('li[data-id="'+nnPaymentMethodId+'"]').attr('style','display:block !important');;
             console.log('show');
            } else {
-            jQuery('li[data-id="'+nnPaymentMethodId+'"]').hide();
+            jQuery('li[data-id="'+nnPaymentMethodId+'"]').attr('style','display:none !important');;
             console.log('hide');
            }       
         }

@@ -109,6 +109,7 @@ class PaymentController extends Controller
         // Get the initial payment call response
         $paymentResponseData = $this->request->all();
         $paymentRequestData = $this->sessionStorage->getPlugin()->getValue('nnPaymentData');
+        $this->getLogger(__METHOD__)->error('paymentResponse', $paymentRequestData);
         // Checksum validation for redirects
         if(!empty($paymentResponseData['tid'])) {
             if($paymentResponseData['status'] == 'SUCCESS') {

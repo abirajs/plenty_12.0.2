@@ -23,10 +23,10 @@
            console.log(iosDevicce);
            console.log(isSafari);
            if(iosDevicce && isSafari) {
-            jQuery('li[data-id="'+nnPaymentMethodId+'"]').show();
+            jQuery('ul li input[value="'+nnPaymentMethodId+'"]').show();
             console.log('show');
            } else {
-            jQuery('li[data-id="'+nnPaymentMethodId+'"]').hide();
+            jQuery('ul li input[value="'+nnPaymentMethodId+'"]').hide();
             console.log('hide');
            }       
         }
@@ -71,10 +71,9 @@ function iOS() {
 				   var iosDevicce = iOS();
 				   var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 				   if(iosDevicce && isSafari) {
-				    alert(iosDevice);
-				    alert(isSafari);
+				   	jQuery('li[data-id="'+nnPaymentMethodIdss+'"]').show();
 				   } else {
-				     alert("not supported");
+				      jQuery('li[data-id="'+nnPaymentMethodIdss+'"]').hide();
 				   }      
 				}
 			</script>

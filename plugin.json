@@ -57,6 +57,11 @@
             "key": "Novalnet\\Providers\\DataProvider\\NovalnetPaymentMethodReinitializePaymentDataProvider",
             "name": "Novalnet Initiate Payment",
             "description": "Display the pay now button"
+        },
+        {
+            "key": "Novalnet\\Providers\\DataProvider\\NovalnetApplePayDisplayDataProvider",
+            "name": "Novalnet Applepay display",
+            "description": "Display the apple pay payment"
         }
     ]
 }

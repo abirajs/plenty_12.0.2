@@ -8,10 +8,16 @@ jQuery(document).ready(function () {
 	 jQuery('.method-list-item').on('click',function() {
                 var clickedId = jQuery(this).attr('data-id');
                 if(clickedId == mopId) {
-                  alert('Not allowed');
-		  location.reload();
+		     var iosDevicce = iOS();
+                     var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+			 if(iosDevicce && isSafari) {
+			    jQuery('li[data-id="'+mopId+'"]').show();
+			 } else {
+			  alert('Not allowed');
+			  location.reload();
+			 }	 
                } 
-		 });	 
+	});	 
 		 
            
 function iOS() {

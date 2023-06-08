@@ -1,7 +1,7 @@
 {# Set up the post data#}
  <input type="hidden" name="nn_apple_pay_mop" id="nn_apple_pay_mop" value="{{paymentMethodId}}">
  <input type="hidden" name="nn_payment_key" id="nn_payment_key" value="NOVALNET_APPLEPAY">
- <input type="hidden" name="nn_accept_gtc" id="nn_accept_gtc" value="{{trans("Novalnet::Customize.template_applepay_error_msg")}}">
+ <input type="hidden" name="nn_applepay_error_msg" id="nn_applepay_error_msg" value="{{trans("Novalnet::Customize.template_applepay_error_msg")}}">
  
  <script type="text/javascript">
     jQuery(document).ready(function () {
@@ -14,7 +14,7 @@
 			 if(iosDevicce && isSafari) {
 			    jQuery('li[data-id="'+mopId+'"]').show();
 			 } else {
-			  alert('Not allowed');
+			  alert(jQuery('#nn_applepay_error_msg').val());
 			  location.reload();
 			 }	 
                } 

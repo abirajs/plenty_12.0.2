@@ -1,6 +1,7 @@
 jQuery(document).ready(function () {
 	
 	var mopId = jQuery('#nn_apple_pay_mop').val();
+	alert(mopId);
 	 jQuery('li[data-id="'+mopId+'"]').click(function() {
 		alert('Not Supported');
 	});

@@ -14,7 +14,7 @@ jQuery(document).ready(function () {
                } else {
 		  alert('yes');
 	       }
-		 
+		 });	 
 		 
            
 function iOS() {

@@ -12,7 +12,7 @@ jQuery(document).ready( function() {
         }
         // Validate the BIC when if it is mandatory
         var ibanCountry = jQuery('#nn_sepa_iban').val().substring(0,2);
-        if (ibanCountry.match(/(?:CH|MC|SM|GB)$/) && jQuery('#nn_sepa_bic').val() == '') {
+        if (ibanCountry.match(/(?:CH|MC|SM|GB|GI)$/) && jQuery('#nn_sepa_bic').val() == '') {
             alert(jQuery('#nn_account_data_invalid').val());
             jQuery('#novalnet_form_btn').prop('disabled', false);
             return false;

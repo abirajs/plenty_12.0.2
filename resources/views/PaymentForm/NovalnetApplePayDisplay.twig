@@ -1,0 +1,43 @@
+{# Set up the post data#}
+ <input type="hidden" name="nn_apple_pay_mop" id="nn_apple_pay_mop" value="{{paymentMethodId}}">
+ <input type="hidden" name="nn_payment_key" id="nn_payment_key" value="NOVALNET_APPLEPAY">
+ <input type="hidden" name="nn_applepay_error_msg" id="nn_applepay_error_msg" value="{{trans("Novalnet::Customize.template_applepay_error_msg")}}">
+ 
+ <script type="text/javascript">
+    jQuery(document).ready(function () {
+	var mopId = jQuery('#nn_apple_pay_mop').val();
+	jQuery('.method-list-item').on('click',function() {
+                var clickedId = jQuery(this).attr('data-id');
+                if(clickedId == mopId) {
+		     var iosDevicce = iOS();
+                     var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+			 if(iosDevicce && isSafari) {
+			    jQuery('li[data-id="'+mopId+'"]').show();
+			 } else {
+			    	alert(jQuery('#nn_applepay_error_msg').val());
+			  	location.reload();
+		         }	 
+              } 
+     });	 
+		 
+           
+function iOS() {
+    return [
+      'iPad Simulator',
+      'iPhone Simulator',
+      'iPod Simulator',
+      'iPad',
+      'iPhone',
+      'iPod'
+    ].includes(navigator.platform)
+    // iPad on iOS 13 detection
+    || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+}
+});
+
+</script>
+	
+
+	
+
+
